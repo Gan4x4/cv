@@ -1,6 +1,5 @@
 # Программа курса
 
-
 ## Classic_ML
 
 ### Dimensionality_reduction.ipynb
@@ -101,126 +100,6 @@
   - Стратификация
 - **Кросс-валидация**
 
-## Convolutional_neural_network
-
-### Adversarial_attack.ipynb
-
-
-### Architectures_cnn.ipynb
-
-- **ImageNet**
-  - Метрики ImageNet
-- **Baseline (AlexNet 2012)**
-  - Тюнинг гиперпараметров (ZFnet)
-- **Базовый блок (VGGNet 2014)**
-  - Вычислительные ресурсы
-- **Inception module (GoogLeNet 2014)**
-  - Stem network
-  - Global Average Pooling
-  - Затухание градиента
-- **BatchNorm (революция глубины)**
-- **Skip connection (ResNet 2015)**
-  - Архитектура ResNet
-  - BasicBlock в PyTorch
-  - Bottleneck layer
-  - Stage ratio
-  - Обучение ResNet
-- **Grouped Convolution**
-  - Grouped Convolution in PyTorch
-  - ResNeXt
-- **Сравнение моделей**
-  - Много skip connection (DenseNet 2016)
-  - Ширина вместо глубины (WideResNet 2016)
-- **Squeeze-and-Excitation (SENet 2017)**
-- **Поиск хорошей архитектуры**
-  - Обзор сети EfficientNet (2019 г.)
-- **Трансформеры**
-- **ConvNext (2022)**
-
-### Augmentation.ipynb
-
-- **Аугментация**
-  - Random Rotation
-  - Gaussian Blur
-  - Random Erasing
-  - ColorJitter
-  - Совмещаем несколько аугментаций вместе
-  - Совмещение нескольких аугментаций случайным образом
-  - Пример создания собственной аугментации
-  - Аугментация внутри `Dataset`
-  - Аугментация в реальных задачах
-
-### Convolution_1x1.ipynb
-
-- **Свёртка фильтром $1\times1$**
-
-### Convolution_layer.ipynb
-
-- **Сверточный слой нейросети**
-  - Обработка цветных/многоканальных изображений
-  - Использование нескольких фильтров
-  - Уменьшение размера карты признаков
-  - Расширение (padding)
-- **Batchnorm 2d**
-  - Другие Normalization
-- **Dropout 2d**
-
-### Convolution_with_filter.ipynb
-
-- **Скользящее окно (фильтр)**
-- **Свертка с фильтром**
-  - Дополнительная информация
-
-### Covolution 1D, 3D.ipynb
-
-- **Свертки 1D**
-- **Свертки 3D**
-
-### GradCam.ipynb
-
-- **Load the data**
-  - Apply Gradcam to Resnet18
-  - Apply Gradcam to Densenet21
-  - Densenet with modified classifier
-
-### Receptive_field.ipynb
-
-- **Полносвязная нейронная сеть**
-  - Нарушение связей между соседними пикселями
-
-### Transfer_learning.ipynb
-
-- **Feature extractor**
-- **Transfer learning**
-  - Шаг 1. Получение предварительно обученной модели
-  - Шаг 2. Заморозка предобученных слоев
-  - Шаг 3. Добавление новых обучаемых слоев
-  - Шаг 4. Обучение новых слоев
-  - Шаг 5. Тонкая настройка модели (fine-tuning)
-
-### Visualization_of_weights_and_feature_maps.ipynb
-
-- **Визуализация весов**
-  - Визуализация фильтров промежуточных слоев
-- **Визуализация карт признаков**
-
-### mlp_vs_conv.ipynb
-
-- **Сравнение свёрточного и полносвязного слоев**
-  - Сколько обучаемых праметров (весов) у свёрточного слоя?
-  - Сколько обучаемых праметров у полносвязного слоя?
-  - Сколько вычислительных ресурсов требуется полносвязному слою?
-  - Сколько вычислительных ресурсов требуется свёрточному слою?
-
-### stride_pooling.ipynb
-
-- **Применение свёрточных слоёв**
-
-### timm.ipynb
-
-- **Torch Image Models (timm)**
-  - Custom feature extractor
-
 ## Decision_trees
 
 ### Bias, Variance, Irreducible error.ipynb
@@ -279,74 +158,6 @@
 - **Boosting**
   - Gradient boosting (градиентный бустинг)
   - Модификации градиентного бустинга
-
-## Detection
-
-### OWL_ViT.ipynb
-
-
-### RCNN.ipynb
-
-- **Эвристика для поиска ROI**
-  - Selective search
-- **R-CNN (Region CNN)**
-- **NMS**
-- **Fast R-CNN**
-- **ROI Pooling**
-- **ROI Align**
-- **Faster R-CNN**
-  - Region proposal network (RPN)
-  - Two stage detector
-- **One Stage detector**
-  - SSD: Single Shot MultiBox Detector
-
-### RetinaNet.ipynb
-
-- **Loss для детектора**
-- **FocalLoss**
-- **Нard Example Mining**
-  - Online hard example mining
-- **Feature pyramid network**
-
-### SAM.ipynb
-
-
-### Why_we_did't_predict_absolute_values_.ipynb
-
-
-### YOLO.ipynb
-
-- **YOLO**
-  - YOLOv3
-  - YOLOv4
-  - YOLOv5
-  - <font color="orange">YOLOX</font>
-  - YOLOv6
-  - YOLOv8
-
-### mAP.ipynb
-
-  - mAP — mean Average Precision
-
-## Generative_models
-
-### VAE.ipynb
-
-- **Вариационные автоэнкодеры (VAE)**
-  - Семплирование в латентном пространстве
-  - Регуляризация латентного пространства
-  - Реализация VAE
-  - Плавная интерполяция
-  - Векторная арифметика
-  - Ограничения VAE
-- **Условные вариационные автоэнкодеры (CVAE)**
-  - Реализация CVAE
-
-## Metric_learning
-
-### BYOL.ipynb
-
-  - BYOL
 
 ## Neural_network
 
@@ -482,6 +293,140 @@
   - PR-кривая
 - **Анализ логов**
 
+## Convolutional_neural_network
+
+### Adversarial_attack.ipynb
+
+
+### Architectures_cnn.ipynb
+
+- **ImageNet**
+  - Метрики ImageNet
+- **Baseline (AlexNet 2012)**
+  - Тюнинг гиперпараметров (ZFnet)
+- **Базовый блок (VGGNet 2014)**
+  - Вычислительные ресурсы
+- **Inception module (GoogLeNet 2014)**
+  - Stem network
+  - Global Average Pooling
+  - Затухание градиента
+- **BatchNorm (революция глубины)**
+- **Skip connection (ResNet 2015)**
+  - Архитектура ResNet
+  - BasicBlock в PyTorch
+  - Bottleneck layer
+  - Stage ratio
+  - Обучение ResNet
+- **Grouped Convolution**
+  - Grouped Convolution in PyTorch
+  - ResNeXt
+- **Сравнение моделей**
+  - Много skip connection (DenseNet 2016)
+  - Ширина вместо глубины (WideResNet 2016)
+- **Squeeze-and-Excitation (SENet 2017)**
+- **Поиск хорошей архитектуры**
+  - Обзор сети EfficientNet (2019 г.)
+- **Трансформеры**
+- **ConvNext (2022)**
+
+### Augmentation.ipynb
+
+- **Аугментация**
+  - Random Rotation
+  - Gaussian Blur
+  - Random Erasing
+  - ColorJitter
+  - Совмещаем несколько аугментаций вместе
+  - Совмещение нескольких аугментаций случайным образом
+  - Пример создания собственной аугментации
+  - Аугментация внутри `Dataset`
+  - Аугментация в реальных задачах
+
+### Convolution_1x1.ipynb
+
+- **Свёртка фильтром $1\times1$**
+
+### Convolution_layer.ipynb
+
+- **Сверточный слой нейросети**
+  - Обработка цветных/многоканальных изображений
+  - Использование нескольких фильтров
+  - Уменьшение размера карты признаков
+  - Расширение (padding)
+- **Batchnorm 2d**
+  - Другие Normalization
+- **Dropout 2d**
+
+### Convolution_with_filter.ipynb
+
+- **Скользящее окно (фильтр)**
+- **Свертка с фильтром**
+  - Дополнительная информация
+
+### Covolution 1D, 3D.ipynb
+
+- **Свертки 1D**
+- **Свертки 3D**
+
+### GradCam.ipynb
+
+- **Load the data**
+  - Apply Gradcam to Resnet18
+  - Apply Gradcam to Densenet21
+  - Densenet with modified classifier
+
+### Receptive_field.ipynb
+
+- **Полносвязная нейронная сеть**
+  - Нарушение связей между соседними пикселями
+
+### Transfer_learning.ipynb
+
+- **Feature extractor**
+- **Transfer learning**
+  - Шаг 1. Получение предварительно обученной модели
+  - Шаг 2. Заморозка предобученных слоев
+  - Шаг 3. Добавление новых обучаемых слоев
+  - Шаг 4. Обучение новых слоев
+  - Шаг 5. Тонкая настройка модели (fine-tuning)
+
+### Visualization_of_weights_and_feature_maps.ipynb
+
+- **Визуализация весов**
+  - Визуализация фильтров промежуточных слоев
+- **Визуализация карт признаков**
+
+### mlp_vs_conv.ipynb
+
+- **Сравнение свёрточного и полносвязного слоев**
+  - Сколько обучаемых праметров (весов) у свёрточного слоя?
+  - Сколько обучаемых праметров у полносвязного слоя?
+  - Сколько вычислительных ресурсов требуется полносвязному слою?
+  - Сколько вычислительных ресурсов требуется свёрточному слою?
+
+### stride_pooling.ipynb
+
+- **Применение свёрточных слоёв**
+
+### timm.ipynb
+
+- **Torch Image Models (timm)**
+  - Custom feature extractor
+
+## Transformers
+
+### DEIT.ipynb
+
+  - Обучение ViT
+  - DeiT: Data-efficient Image Transformers
+
+### ViT.ipynb
+
+- **Self Attention (ViT 2020)**
+  - Сравнение со сверткой
+- **Архитектура ViT**
+  - Предсказание с помощью ViT
+
 ## Representation_learning
 
 ### Autoencoders.ipynb
@@ -548,23 +493,65 @@
   - U-Net: Convolutional Networks for Biomedical Image Segmentation
   - Обзор DeepLabv3+ (2018)
 
-## Training
+## Detection
 
-### WeightedRandomSampler.ipynb
+### OWL_ViT.ipynb
 
-- **Баланс классов**
 
-## Transformers
+### RCNN.ipynb
 
-### DEIT.ipynb
+- **Эвристика для поиска ROI**
+  - Selective search
+- **R-CNN (Region CNN)**
+- **NMS**
+- **Fast R-CNN**
+- **ROI Pooling**
+- **ROI Align**
+- **Faster R-CNN**
+  - Region proposal network (RPN)
+  - Two stage detector
+- **One Stage detector**
+  - SSD: Single Shot MultiBox Detector
 
-  - Обучение ViT
-  - DeiT: Data-efficient Image Transformers
+### RetinaNet.ipynb
 
-### ViT.ipynb
+- **Loss для детектора**
+- **FocalLoss**
+- **Нard Example Mining**
+  - Online hard example mining
+- **Feature pyramid network**
 
-- **Self Attention (ViT 2020)**
-  - Сравнение со сверткой
-- **Архитектура ViT**
-  - Предсказание с помощью ViT
+### SAM.ipynb
+
+
+### Why_we_did't_predict_absolute_values_.ipynb
+
+
+### YOLO.ipynb
+
+- **YOLO**
+  - YOLOv3
+  - YOLOv4
+  - YOLOv5
+  - <font color="orange">YOLOX</font>
+  - YOLOv6
+  - YOLOv8
+
+### mAP.ipynb
+
+  - mAP — mean Average Precision
+
+## Generative_models
+
+### VAE.ipynb
+
+- **Вариационные автоэнкодеры (VAE)**
+  - Семплирование в латентном пространстве
+  - Регуляризация латентного пространства
+  - Реализация VAE
+  - Плавная интерполяция
+  - Векторная арифметика
+  - Ограничения VAE
+- **Условные вариационные автоэнкодеры (CVAE)**
+  - Реализация CVAE
 
