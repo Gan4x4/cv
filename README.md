@@ -2,7 +2,7 @@
 
 ## Classic_ML
 
-### [Dimensionality_reduction.ipynb](https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/Dimensionality_reduction.ipynb) 
+### [Dimensionality_reduction.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/Dimensionality_reduction.ipynb>)
 
 - **Задача понижения размерности**
   - Manifold assumption
@@ -11,14 +11,14 @@
   - t-SNE (t-distributed Stochastic Neighbor Embedding)
   - UMAP
 
-### KNN.ipynb
+### [KNN.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/KNN.ipynb>)
 
 - **Описание модели k-NN**
   - Близость данных согласно метрике
   - Задача классификации
   - Задача регрессии
 
-### SVM.ipynb
+### [SVM.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/SVM.ipynb>)
 
 - **Метод опорных векторов (SVM)**
   - Многомерная классификация
@@ -26,7 +26,7 @@
   - Полиномиальная модель
   - Kernel SVM
 
-### classification_metrics.ipynb
+### [classification_metrics.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/classification_metrics.ipynb>)
 
 - **Метрики классификации**
   - Accuracy
@@ -39,13 +39,13 @@
   - Multiclass accuracy
   - Multilabel
 
-### clustering.ipynb
+### [clustering.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/clustering.ipynb>)
 
 - **Кластеризация**
   - Алгоритм K-Means
   - Алгоритм DBSCAN
 
-### gradient_descent.ipynb
+### [gradient_descent.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/gradient_descent.ipynb>)
 
 - **Метод градиентного спуска**
   - Градиент
@@ -55,13 +55,13 @@
   - Необходимость нормализации
   - Cтохастический градиентный спуск
 
-### hyperparameters_optimization.ipynb
+### [hyperparameters_optimization.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/hyperparameters_optimization.ipynb>)
 
 - **GridSearch**
 - **RandomizedSearch**
 - **Optuna**
 
-### linear_classifier.ipynb
+### [linear_classifier.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/linear_classifier.ipynb>)
 
 - **Линейная классификация**
   - Постановка задачи
@@ -69,7 +69,7 @@
   - Многоклассовая классификация
   - Cross-Entropy loss
 
-### linear_regression.ipynb
+### [linear_regression.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/linear_regression.ipynb>)
 
 - **Линейная регрессия**
   - Модель и ее параметры
@@ -79,7 +79,7 @@
   - Метрики регрессии
   - Модель линейной регрессии из библиотеки scikit-learn
 
-### regression_metrics.ipynb
+### [regression_metrics.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/regression_metrics.ipynb>)
 
 - **Метрики регрессии**
   - MAE (mean absolute error)
@@ -88,12 +88,12 @@
   - R²
   - MSLE (mean squared logarithmic error)
 
-### regularization.ipynb
+### [regularization.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/regularization.ipynb>)
 
 - **Проблема корреляции признаков**
   - Регуляризация
 
-### train_test_split_kfold.ipynb
+### [train_test_split_kfold.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/train_test_split_kfold.ipynb>)
 
 - **Параметры и гиперпараметры модели**
 - **Разделение train-validation-test**
@@ -102,7 +102,7 @@
 
 ## Decision_trees
 
-### Bias, Variance, Irreducible error.ipynb
+### [Bias, Variance, Irreducible error.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Decision_trees/Bias, Variance, Irreducible error.ipynb>)
 
 - **Bias, Variance, Irreducible error**
   - Bias
@@ -110,18 +110,18 @@
   - Irreducible error
   - Bias vs variance
 
-### Blending_stacking.ipynb
+### [Blending_stacking.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Decision_trees/Blending_stacking.ipynb>)
 
 - **Блендинг и Стэкинг**
   - Blending (Блендинг)
   - Стэкинг
 
-### Bootstrap.ipynb
+### [Bootstrap.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Decision_trees/Bootstrap.ipynb>)
 
 - **Бутстрэп**
   - Построение доверительного интервала для качества метрики
 
-### Decision_tree.ipynb
+### [Decision_tree.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Decision_trees/Decision_tree.ipynb>)
 
 - **Деревья решений**
   - Принцип работы дерева решений
@@ -129,21 +129,21 @@
   - Регрессия
   - Свойства деревьев решений
 
-### Ensembles.ipynb
+### [Ensembles.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Decision_trees/Ensembles.ipynb>)
 
 - **Ансамбли**
   - Bagging = **B**ootstrap **agg**regat**ing**
   - Метод случайных подпространств (RSM, random subspace method)
   - Комбинация RSM и Bagging
 
-### Imbalanced_dataset.ipynb
+### [Imbalanced_dataset.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Decision_trees/Imbalanced_dataset.ipynb>)
 
 - **Проблемы при работе с реальными данными**
   - Дисбаланс классов
 - **Обнаружение аномалий**
   - Оценка качества в задаче обнаружения аномалий
 
-### Random_forest.ipynb
+### [Random_forest.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Decision_trees/Random_forest.ipynb>)
 
 - **Случайный лес**
   - Зависимость качества случайного леса от числа деревьев
@@ -153,7 +153,7 @@
   - Переобучение случайного леса
   - Валидация случайного леса на Out-Of-Bag (OOB) объектах
 
-### gradient_boosting.ipynb
+### [gradient_boosting.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Decision_trees/gradient_boosting.ipynb>)
 
 - **Boosting**
   - Gradient boosting (градиентный бустинг)
@@ -161,13 +161,13 @@
 
 ## Neural_network
 
-### Backpropagation.ipynb
+### [Backpropagation.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/Backpropagation.ipynb>)
 
 - **Обучение нейронной сети**
   - Прямое и обратное распространение
   - Метод обратного распространения ошибки
 
-### Batchnorm.ipynb
+### [Batchnorm.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/Batchnorm.ipynb>)
 
 - **Трудности при обучении глубоких нейронных сетей**
 - **Затухание градиента**
@@ -184,7 +184,7 @@
   - Batch Normalization
 - **Pseudocode for training a model in pure pytorch**
 
-### Dropout.ipynb
+### [Dropout.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/Dropout.ipynb>)
 
 - **Вспомогательный код**
 - **Регуляризация**
@@ -194,7 +194,7 @@
   - DropBlock
   - Советы по использованию Dropout
 
-### Lightning.ipynb
+### [Lightning.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/Lightning.ipynb>)
 
 - **Lightning**
   - Мотивация множить сущности
@@ -204,7 +204,7 @@
 - **Loss function -> __init__**
 - **number epoch -> L.trainer(max_epochs=...)**
 
-### Multilayer_perceptron.ipynb
+### [Multilayer_perceptron.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/Multilayer_perceptron.ipynb>)
 
 - **Ограничения линейных моделей**
   - Проблемы классификации более сложных объектов
@@ -212,14 +212,14 @@
   - Веса и смещения
   - Нейронная сеть как универсальный аппроксиматор
 
-### Optimizers.ipynb
+### [Optimizers.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/Optimizers.ipynb>)
 
 - **Вспомогательный код**
 - **Оптимизация параметров нейросетей**
   - Обзор популярных оптимизаторов
   - Использование оптимизаторов
 
-### activation_functions.ipynb
+### [activation_functions.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/activation_functions.ipynb>)
 
 - **Функции активации**
   - Требования к функциям активации
@@ -231,7 +231,7 @@
   - GELU (Gaussian Error Linear Unit)
   - Визуализация функций активации
 
-### learning_techniques.ipynb
+### [learning_techniques.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/learning_techniques.ipynb>)
 
 - **Вспомогательный код**
 - **Режимы обучения**
@@ -244,7 +244,7 @@
   - Model soup
   - Взаимодействие learning schedule и адаптивного изменения learning rate
 
-### loss_function.ipynb
+### [loss_function.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/loss_function.ipynb>)
 
 - **Функции потерь (loss functions)**
   - Mean Squared Error
@@ -256,7 +256,7 @@
   - Binary Cross-Entropy
   - Binary Cross-Entropy With Logits
 
-### normalization.ipynb
+### [normalization.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/normalization.ipynb>)
 
 - **Трудности при обучении глубоких нейронных сетей**
 - **Затухание градиента**
@@ -269,7 +269,7 @@
   - Важность инициализации весов
   - Инициализация весов в PyTorch
 
-### pytorch_example.ipynb
+### [pytorch_example.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/pytorch_example.ipynb>)
 
 - **Углубление в PyTorch. Пример нейронной сети на MNIST**
   - Dataset и DataLoader
@@ -277,7 +277,7 @@
   - Создание нейронной сети
   - Обучение нейронной сети
 
-### tensorboard.ipynb
+### [tensorboard.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Neural_network/tensorboard.ipynb>)
 
 - **Знакомство с TensorBoard**
 - **Логирование результатов и Summary**
@@ -295,10 +295,10 @@
 
 ## Convolutional_neural_network
 
-### Adversarial_attack.ipynb
+### [Adversarial_attack.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Adversarial_attack.ipynb>)
 
 
-### Architectures_cnn.ipynb
+### [Architectures_cnn.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Architectures_cnn.ipynb>)
 
 - **ImageNet**
   - Метрики ImageNet
@@ -329,7 +329,7 @@
 - **Трансформеры**
 - **ConvNext (2022)**
 
-### Augmentation.ipynb
+### [Augmentation.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Augmentation.ipynb>)
 
 - **Аугментация**
   - Random Rotation
@@ -342,11 +342,11 @@
   - Аугментация внутри `Dataset`
   - Аугментация в реальных задачах
 
-### Convolution_1x1.ipynb
+### [Convolution_1x1.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Convolution_1x1.ipynb>)
 
 - **Свёртка фильтром $1\times1$**
 
-### Convolution_layer.ipynb
+### [Convolution_layer.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Convolution_layer.ipynb>)
 
 - **Сверточный слой нейросети**
   - Обработка цветных/многоканальных изображений
@@ -357,30 +357,30 @@
   - Другие Normalization
 - **Dropout 2d**
 
-### Convolution_with_filter.ipynb
+### [Convolution_with_filter.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Convolution_with_filter.ipynb>)
 
 - **Скользящее окно (фильтр)**
 - **Свертка с фильтром**
   - Дополнительная информация
 
-### Covolution 1D, 3D.ipynb
+### [Covolution 1D, 3D.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Covolution 1D, 3D.ipynb>)
 
 - **Свертки 1D**
 - **Свертки 3D**
 
-### GradCam.ipynb
+### [GradCam.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/GradCam.ipynb>)
 
 - **Load the data**
   - Apply Gradcam to Resnet18
   - Apply Gradcam to Densenet21
   - Densenet with modified classifier
 
-### Receptive_field.ipynb
+### [Receptive_field.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Receptive_field.ipynb>)
 
 - **Полносвязная нейронная сеть**
   - Нарушение связей между соседними пикселями
 
-### Transfer_learning.ipynb
+### [Transfer_learning.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Transfer_learning.ipynb>)
 
 - **Feature extractor**
 - **Transfer learning**
@@ -390,13 +390,13 @@
   - Шаг 4. Обучение новых слоев
   - Шаг 5. Тонкая настройка модели (fine-tuning)
 
-### Visualization_of_weights_and_feature_maps.ipynb
+### [Visualization_of_weights_and_feature_maps.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/Visualization_of_weights_and_feature_maps.ipynb>)
 
 - **Визуализация весов**
   - Визуализация фильтров промежуточных слоев
 - **Визуализация карт признаков**
 
-### mlp_vs_conv.ipynb
+### [mlp_vs_conv.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/mlp_vs_conv.ipynb>)
 
 - **Сравнение свёрточного и полносвязного слоев**
   - Сколько обучаемых праметров (весов) у свёрточного слоя?
@@ -404,23 +404,23 @@
   - Сколько вычислительных ресурсов требуется полносвязному слою?
   - Сколько вычислительных ресурсов требуется свёрточному слою?
 
-### stride_pooling.ipynb
+### [stride_pooling.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/stride_pooling.ipynb>)
 
 - **Применение свёрточных слоёв**
 
-### timm.ipynb
+### [timm.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Convolutional_neural_network/timm.ipynb>)
 
 - **Torch Image Models (timm)**
   - Custom feature extractor
 
 ## Transformers
 
-### DEIT.ipynb
+### [DEIT.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Transformers/DEIT.ipynb>)
 
   - Обучение ViT
   - DeiT: Data-efficient Image Transformers
 
-### ViT.ipynb
+### [ViT.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Transformers/ViT.ipynb>)
 
 - **Self Attention (ViT 2020)**
   - Сравнение со сверткой
@@ -429,7 +429,7 @@
 
 ## Representation_learning
 
-### Autoencoders.ipynb
+### [Autoencoders.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Representation_learning/Autoencoders.ipynb>)
 
 - **Автоэнкодеры (AE)**
   - Архитектура автоэнкодера
@@ -449,39 +449,39 @@
 - **Условные вариационные автоэнкодеры (CVAE)**
   - Реализация CVAE
 
-### Metric_learning.ipynb
+### [Metric_learning.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Representation_learning/Metric_learning.ipynb>)
 
 - **Metric learning**
   - Формирование векторов признаков
   - Сиамская сеть
   - Реализация сиамской сети
 
-### Representation_learning.ipynb
+### [Representation_learning.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Representation_learning/Representation_learning.ipynb>)
 
 - **Глубокие нейронные сети как модели обучения представлений**
   - Понижение размерности и гипотеза о многообразии
 
 ## Segmentation
 
-### Albumentations.ipynb
+### [Albumentations.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Segmentation/Albumentations.ipynb>)
 
 - **Albumentations**
   - Особенности применения аугментаций при задаче сегментации
   - Пример использования Albumentations
 
-### COCO_dataset.ipynb
+### [COCO_dataset.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Segmentation/COCO_dataset.ipynb>)
 
   - Dataset COCO — Common Objects in Context
 
-### Panoptic_segmentation.ipynb
+### [Panoptic_segmentation.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Segmentation/Panoptic_segmentation.ipynb>)
 
 - **Panoptic Segmentation**
 
-### SMP.ipynb
+### [SMP.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Segmentation/SMP.ipynb>)
 
 - **Segmentation models PyTorch (SMP)**
 
-### Semantic_segmentation.ipynb
+### [Semantic_segmentation.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Segmentation/Semantic_segmentation.ipynb>)
 
 - **Семантическая сегментация (Semantic segmentation)**
 - **Семантическая сегментация (Semantic segmentation)**
@@ -495,10 +495,10 @@
 
 ## Detection
 
-### OWL_ViT.ipynb
+### [OWL_ViT.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Detection/OWL_ViT.ipynb>)
 
 
-### RCNN.ipynb
+### [RCNN.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Detection/RCNN.ipynb>)
 
 - **Эвристика для поиска ROI**
   - Selective search
@@ -513,7 +513,7 @@
 - **One Stage detector**
   - SSD: Single Shot MultiBox Detector
 
-### RetinaNet.ipynb
+### [RetinaNet.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Detection/RetinaNet.ipynb>)
 
 - **Loss для детектора**
 - **FocalLoss**
@@ -521,13 +521,13 @@
   - Online hard example mining
 - **Feature pyramid network**
 
-### SAM.ipynb
+### [SAM.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Detection/SAM.ipynb>)
 
 
-### Why_we_did't_predict_absolute_values_.ipynb
+### [Why_we_did't_predict_absolute_values_.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Detection/Why_we_did't_predict_absolute_values_.ipynb>)
 
 
-### YOLO.ipynb
+### [YOLO.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Detection/YOLO.ipynb>)
 
 - **YOLO**
   - YOLOv3
@@ -537,13 +537,13 @@
   - YOLOv6
   - YOLOv8
 
-### mAP.ipynb
+### [mAP.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Detection/mAP.ipynb>)
 
   - mAP — mean Average Precision
 
 ## Generative_models
 
-### VAE.ipynb
+### [VAE.ipynb](<https://colab.research.google.com/github/Gan4x4/cv/blob/main/Generative_models/VAE.ipynb>)
 
 - **Вариационные автоэнкодеры (VAE)**
   - Семплирование в латентном пространстве

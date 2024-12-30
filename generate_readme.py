@@ -13,6 +13,9 @@ course_order = [
     "Generative_models"
 ]
 
+# URL-основа для Colab
+base_url = "https://colab.research.google.com/github/Gan4x4/cv/blob/main"
+
 def extract_headers(notebook_path):
     """
     Извлекает заголовки h1 и h2 из блокнота Jupyter.
@@ -45,9 +48,10 @@ def generate_course_program():
             program += f"## {block}\n\n"  # Название блока (папки)
             for notebook in sorted(os.listdir(block_path)):
                 if notebook.endswith(".ipynb"):
-                    notebook_path = os.path.join(block_path, notebook)
-                    program += f"### {notebook}\n\n"  # Название блокнота
-                    headers = extract_headers(notebook_path)
+                    # Ссылка на блокнот
+                    notebook_url = f"{base_url}/{block}/{notebook}"
+                    program += f"### [{notebook}](<{notebook_url}>)\n\n"  # Название блокнота с ссылкой
+                    headers = extract_headers(os.path.join(block_path, notebook))
                     for level, header in headers:
                         if level == 1:
                             program += f"- **{header}**\n"  # Заголовок h1
@@ -66,7 +70,5 @@ def save_to_readme(output_file="README.md"):
         f.write(program)
     print(f"README.md успешно создан в {os.getcwd()}!")
 
-
-# Запуск скрипта
 if __name__ == "__main__":
     save_to_readme()
