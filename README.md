@@ -2,7 +2,7 @@
 
 ## Classic_ML
 
-### Dimensionality_reduction.ipynb
+### [Dimensionality_reduction.ipynb](https://colab.research.google.com/github/Gan4x4/cv/blob/main/Classic_ML/Dimensionality_reduction.ipynb) 
 
 - **Задача понижения размерности**
   - Manifold assumption
