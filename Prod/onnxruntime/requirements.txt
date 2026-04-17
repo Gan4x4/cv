@@ -1,3 +1,0 @@
-ipykernel
-onnxruntime-gpu
-tensorrt # Must be compatible with the onnxruntime-gpu version. See: https://onnxruntime.ai/docs/execution-providers/TensorRT-ExecutionProvider.html#requirements
