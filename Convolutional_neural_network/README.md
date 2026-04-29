@@ -1,0 +1,126 @@
+# Сверточные нейронные сети
+
+## Темы
+
+- [Ограничения применимости полносвязной сети для изображений](Receptive_field.ipynb)
+- [Классические фильтры для обработки изображений?](Convolution_with_filter.ipynb)
+- [Сверточный слой нейросети](Convolution_layer.ipynb)
+- [Рецептивные поля нейронов (stride, pooling)](Receptive_field.ipynb)
+- [Сравнение свёрточного и полносвязного слоев](mlp_vs_conv.ipynb)
+- [Свертка 1х1](Convolution_1x1.ipynb)
+- [Свертки 1D, 3D](Covolution%201D,%203D.ipynb)
+- [Визуализация весов и карт признаков](Visualization_of_weights_and_feature_maps.ipynb)
+- [Архитектуры сверточных нейронных сетей](Architectures_cnn.ipynb)
+- [Torch Image Models (timm)](timm.ipynb)
+- [Графовые нейронные сети](Graph_networks.ipynb)
+- [Аугментация](Augmentation.ipynb)
+- [Transfer learning](Transfer_learning.ipynb)
+- [Рецептивные поля нейронов (stride, pooling)](stride_pooling.ipynb)
+
+## Ограничения применимости полносвязной сети для изображений
+
+Дополнительные материалы:
+
+[Семинар\[видео\]](https://youtu.be/0rUQW6O9CUs)
+
+Материалы: [Receptive_field.ipynb](Receptive_field.ipynb), [github.com](https://github.com/EPC-MSU/EduNet-lectures/blob/dev-2.0/out/L06_CNN.ipynb), [colab.research.google.com](https://colab.research.google.com/drive/1pMYxPs4WA7Rgp_SrmiqAFgookgj01-Ef#scrollTo=dxXv7qbaYqDL)
+
+## Классические фильтры для обработки изображений?
+
+Материалы: [Convolution_with_filter.ipynb](Convolution_with_filter.ipynb), [svyortochnye-nejroseti](https://education.yandex.ru/handbook/ml/article/svyortochnye-nejroseti)
+
+## Сверточный слой нейросети
+
+В линейном слое каждый нейрон учился активироваться на некий шаблон, например, красную машину или смотрящую направо лошадь.
+
+Мы хотим, чтобы нейроны сверточного слоя также активировались на различные паттерны (например, ухо, нос, глаз и т.д.). Для каждого паттерна нам нужен свой нейрон ⇒ свой фильтр.
+
+Материалы: [Convolution_layer.ipynb](Convolution_layer.ipynb), [generated](https://docs.pytorch.org/docs/stable/generated/torch.nn.Conv2d.html)
+
+## Рецептивные поля нейронов (stride, pooling)
+
+Дополнительные материалы:
+
+[Семинар\[видео\]](https://youtu.be/0rUQW6O9CUs)
+
+Материалы: [Receptive_field.ipynb](Receptive_field.ipynb), [colab.research.google.com](https://colab.research.google.com/drive/1pMYxPs4WA7Rgp_SrmiqAFgookgj01-Ef#scrollTo=uYWQLT-ZYqDX&line=1&uniqifier=1), [colab.research.google.com](https://colab.research.google.com/drive/1pMYxPs4WA7Rgp_SrmiqAFgookgj01-Ef#scrollTo=T820bjBRYqDV), [pooling-vs-stride-for-downsampling](https://stats.stackexchange.com/questions/387482/pooling-vs-stride-for-downsampling), [feature-extracted-by-max-pooling-vs-mean-pooling](https://stats.stackexchange.com/questions/291451/feature-extracted-by-max-pooling-vs-mean-pooling)
+
+## Сравнение свёрточного и полносвязного слоев
+
+Материалы: [mlp_vs_conv.ipynb](mlp_vs_conv.ipynb), [colab.research.google.com](https://colab.research.google.com/drive/1pMYxPs4WA7Rgp_SrmiqAFgookgj01-Ef#scrollTo=2jpvZDJ-YqDa)
+
+## Свертка 1х1
+
+Такой способ встречается во многих архитектурах сетей.
+
+Материалы: [Convolution_1x1.ipynb](Convolution_1x1.ipynb)
+
+## Свертки 1D, 3D
+
+Простейшим примером 3D данных является видео: к двумерной структуре самих изображений добавляется координата времени.
+
+Материалы: [Covolution 1D, 3D.ipynb](Covolution 1D, 3D.ipynb)
+
+## Визуализация весов и карт признаков
+
+Материалы: [Visualization_of_weights_and_feature_maps.ipynb](Visualization_of_weights_and_feature_maps.ipynb)
+
+## Архитектуры сверточных нейронных сетей
+
+Материалы: [Architectures_cnn.ipynb](Architectures_cnn.ipynb), [watch](https://www.youtube.com/watch?v=6w1mO90stc0&list=PL-KRBoUl__Zc5dYuItKv-64Wbfrq5tZkZ&index=2&t=5669s), [about](https://www.image-net.org/about.php), [generated](https://docs.pytorch.org/docs/stable/generated/torch.nn.AdaptiveAvgPool2d.html), [global-average-pooling](https://paperswithcode.com/method/global-average-pooling), [residual-connection](https://paperswithcode.com/method/residual-connection), [inception-module](https://paperswithcode.com/method/inception-module), [posts](https://amaarora.github.io/posts/2020-07-24-SeNet.html), [@dmangla3](https://medium.com/@dmangla3/designing-faster-neural-networks-e1f1dc026533), [how-batch-normalization-layer-resolve-the-vanishing-gradient-problem](https://datascience.stackexchange.com/questions/95160/how-batch-normalization-layer-resolve-the-vanishing-gradient-problem)
+
+## Torch Image Models (timm)
+
+Основные особенности библиотеки:
+
+* **Разнообразие моделей**. Библиотека содержит различные архитектуры нейронных сетей, включая популярные модели, такие как ResNet, EfficientNet, ViT (Vision Transformer) и многие другие.
+
+* **Предварительное обучение**. Модели предварительно обучены на больших датасетах, таких как ImageNet, что позволяет использовать их как основу для различных задач компьютерного зрения с минимальной настройкой.
+
+* **Простота использования**. Удобный интерфейс для загрузки и использования моделей в PyTorch.
+
+* **Гибкость**. Возможность настраивать и адаптировать модели из библиотеки под свои конкретные задачи, добавлять и изменять слои и т. д.
+
+Материалы: [timm.ipynb](timm.ipynb), [timm](https://github.com/pprp/timm)
+
+## Графовые нейронные сети
+
+Примеры данных, которые естественно хранить в виде графа:
+
+- Cтруктура молекул (атомы — вершины,  связи между ними — ребра)
+- 3D объекты (mesh)
+- Транспортные карты и маршруты
+- Cвязи: соц. сети, цитаты, цитируемость статей
+- и т. п.
+
+![graph_examples.png](https://ml.gan4x4.ru/msu/dep-2.1/L06/graph_examples.png)
+
+Материалы: [Graph_networks.ipynb](Graph_networks.ipynb)
+
+## Аугментация
+
+Модели глубокого обучения обычно требуют большого количества данных для обучения. В целом, чем больше данных, тем лучше для обучения модели. В то же время получение огромных объемов данных сопряжено со своими проблемами (например, с нехваткой размеченных данных или с трудозатратами, сопряженными с разметкой).
+
+Вместо того, чтобы тратить дни на сбор данных вручную, мы можем использовать методы аугментации для автоматической генерации новых примеров из уже имеющихся.
+
+Материалы: [Augmentation.ipynb](Augmentation.ipynb)
+
+## Transfer learning
+
+Если взять обученную модель, заменить у нее несколько последних слоев и обучить только их то ранее обученные слои будут извлекать признаки (feature extractor), и полученные таким образом представления (embedding) будут классифицироваться вновь добавленными слоями.
+
+Материалы: [Transfer_learning.ipynb](Transfer_learning.ipynb)
+
+## Рецептивные поля нейронов (stride, pooling)
+
+Внутри свёрточных слоёв происходит следующий процесс: первые слои нейронных сетей имеют малые рецептивные поля, т. е. им соответствует малая площадь на исходном изображении. Такие нейроны могут активироваться лишь на некоторые простые шаблоны (по типу углов или освещённости).
+
+Нейроны следующего слоя уже имеют большие рецептивные поля, в результате чего в картах признаков появляется информация о более сложных паттернах. С каждым слоем свёрточной нейронной сети рецептивное поле нейронов увеличивается. Увеличивается и сложность шаблонов, на которые может реагировать нейрон. В последних слоях рецептивное поле нейрона должно быть размером со всё исходное изображение. Пример можно увидеть на схеме ниже.
+
+Однако при обработке больших изображений нам потребуется очень много слоев, чтобы нейрон "увидел" всю картинку.
+
+К примеру, для изображения 1024×1024 понадобится сеть глубиной ≈510 сверточных слоев.
+
+Такая модель потребует огромного количества памяти и вычислительных ресурсов. Чтобы избежать этого, будем сами уменьшать размеры карт признаков, при этом рецептивные поля нейронов будут расти.
+
+Материалы: [stride_pooling.ipynb](stride_pooling.ipynb)
