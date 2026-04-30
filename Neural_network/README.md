@@ -1,5 +1,7 @@
 # Нейронные сети
 
+
+
 ## Темы
 
 - [Функции потерь](loss_function.ipynb)
@@ -16,7 +18,58 @@
 - [Tensorboard](tensorboard.ipynb)
 - [Batch Normalization](Batchnorm.ipynb)
 
-## Функции потерь
+
+## Многослойные нейронные сети
+
+Multi-layer perceptron(MLP) или Многослойная нейронная сеть
+
+Многослойный персептрон это модель, где данные проходят через несколько линейных слоев с функцией активации. Входные данные обрабатываются последовательно, и каждый слой улучшает признаковое описание данных.
+
+
+Мотивация:
+
+    Линейные модели эффективны только при работе с линейно разделимыми данными.
+
+    Для работы с произвольными данными требуется их предобработка и нелинейные модели(Feature engineering).
+
+Объединив несколько линейных слоев при помощи нелинейной функции мы получаем возможность работать с любыми данными и избавляемся от необходимости ручной подготовки признаков.
+
+
+![MLP](https://ml.gan4x4.ru/msu/dev-2.0/L05/out/nn_fully_connected.png)
+
+Материалы: [Multilayer_perceptron.ipynb](Multilayer_perceptron.ipynb), 
+[presentation](https://docs.google.com/presentation/d/1MCgXRalQYN4XMinNhaM49ZpEc39TnBxIwYJjiL2F5kU/edit?slide=id.p#slide=id.p)
+
+Дополнительные материалы: 
+
+[HTML c теорией](https://education.yandex.ru/handbook/ml/article/pervoe-znakomstvo-s-polnosvyaznymi-nejrosetyami)
+
+Пример [реализации и обучения](https://colab.research.google.com/github/bentrevett/pytorch-image-classification/blob/master/1_mlp.ipynb) с использованиемфреймворка Pytorch и датасета MNIST
+
+[Запись лекции](https://youtu.be/uJf-aWiXR-s)
+
+
+### Функции активации
+
+Функции активации вводят нелинейность в нейронные сети, что позволяет аппроксимировать сложные функции.
+
+Требования к функциям активации:
+
+**Нелинейность**: Функции активации добавляют нелинейность, необходимую для аппроксимации сложных функций, чего нельзя достичь простой линейной моделью. Без нелинейностей нейронные сети действуют как линейные модели.
+
+**Дифференцируемость**: Функции активации должны быть дифференцируемыми, чтобы применять градиентные методы оптимизации.
+
+![Basic activation functions](https://ml.gan4x4.ru/msu/dev-2.1/L05/popular_activation_functions.png)
+
+
+Материалы: [activation_functions.ipynb](activation_functions.ipynb), [presentation](https://docs.google.com/presentation/d/1MCgXRalQYN4XMinNhaM49ZpEc39TnBxIwYJjiL2F5kU/edit?slide=id.g2860616d7ba_0_318#slide=id.g2860616d7ba_0_318)
+
+
+
+## Обучение
+
+
+### Функции потерь
 
 Функция потерь измеряет ошибку модели, оценивая расхождение между предсказанными результатами и истинными значениями. Она принимает два аргумента:
 
@@ -26,53 +79,37 @@
 
 Для успешного обучения с использованием градиентного спуска функция потерь должна быть дифференцируемой и ограниченной снизу.
 
-Материалы: [loss_function.ipynb](loss_function.ipynb), [Loss_function](https://en.wikipedia.org/wiki/Loss_function), [@mlblogging](https://medium.com/@mlblogging.k/14-loss-functions-you-can-use-for-regression-b24db8dff987), [Mean_absolute_error](https://en.wikipedia.org/wiki/Mean_absolute_error), [Mean_squared_error](https://en.wikipedia.org/wiki/Mean_squared_error), [torch.nn.CrossEntropyLoss](https://docs.pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html), [Focal-loss-PyTorch](https://github.com/itakurah/Focal-loss-PyTorch), [torch.nn.BCELoss](https://docs.pytorch.org/docs/stable/generated/torch.nn.BCELoss.html)
+Материалы: [loss_function.ipynb](loss_function.ipynb)
 
-## Нормализация входных данных
+###  Backpropagation
 
-Нормализация позволяет искать минимум целевой функции удобнее и быстрее:
+Алгоритм обратного распространения ошибки(backpropagation) это обобщение метода градиентного спуска для обучения моделей с произвольным количеством слоев.
 
-Материалы: [normalization.ipynb](normalization.ipynb), [standartizaciya-dannyh](https://practicum.yandex.ru/blog/standartizaciya-dannyh/), [torch.nn.functional.normalize](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.normalize.html)
+Так как градиент функции потерь зависит от всей модели. Ручной рассчет для больших моделей затруднителен. Алгоритм обратного распространения позволяет сделать это для модели любой сложности используя правило вычисления производной сложной функции([chain rule](https://en.wikipedia.org/wiki/Chain_rule)).
 
-## Многослойные нейронные сети
+![Calculation graph](https://ml.gan4x4.ru/msu/dev-2.0/L05/out/graph_of_calculation_gradient.png)
 
-Объединив несколько линейных слоев при помощи нелинейной функции мы получаем возможность [аппроксимировать любую функцию](https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D0%BE%D1%80%D0%B5%D0%BC%D0%B0_%D0%A6%D1%8B%D0%B1%D0%B5%D0%BD%D0%BA%D0%BE) и избавляемся от необходимости ручной подготовки признаков.
-
-Материалы: [Multilayer_perceptron.ipynb](Multilayer_perceptron.ipynb), [presentation](https://docs.google.com/presentation/d/1MCgXRalQYN4XMinNhaM49ZpEc39TnBxIwYJjiL2F5kU/edit?slide=id.p#slide=id.p), [colab.research.google.com](https://colab.research.google.com/drive/1jP_wPi_zaijPvNQvZMq0Tt2YnHOtIF5-#scrollTo=pPP4g1gUUkk9), [colab.research.google.com](https://colab.research.google.com/drive/1jP_wPi_zaijPvNQvZMq0Tt2YnHOtIF5-#scrollTo=z4rKAfjWUklP)
-
-## Функции активации
-
-Требования к функциям активации:
-
-**Нелинейность**: Функции активации добавляют нелинейность, необходимую для аппроксимации сложных функций, чего нельзя достичь простой линейной моделью. Без нелинейностей нейронные сети действуют как линейные модели.
-
-**Дифференцируемость**: Функции активации должны быть дифференцируемыми, чтобы применять градиентные методы оптимизации.
-
-Материалы: [activation_functions.ipynb](activation_functions.ipynb), [colab.research.google.com](https://colab.research.google.com/drive/1jP_wPi_zaijPvNQvZMq0Tt2YnHOtIF5-#scrollTo=6-0wqBsBUklq), [presentation](https://docs.google.com/presentation/d/1MCgXRalQYN4XMinNhaM49ZpEc39TnBxIwYJjiL2F5kU/edit?slide=id.g2860616d7ba_0_318#slide=id.g2860616d7ba_0_318)
-
-## Введение в PyTorch.
-
-Материалы: [pytorch_example.ipynb](pytorch_example.ipynb), [data_tutorial](https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html), [colab.research.google.com](https://colab.research.google.com/drive/1jP_wPi_zaijPvNQvZMq0Tt2YnHOtIF5-#scrollTo=qynj642QUklv), [colab.research.google.com](https://colab.research.google.com/drive/1jP_wPi_zaijPvNQvZMq0Tt2YnHOtIF5-#scrollTo=d0zpXE7vUkly), [transforms_tutorial](https://docs.pytorch.org/tutorials/beginner/basics/transforms_tutorial.html), [colab.research.google.com](https://colab.research.google.com/drive/1xbYegrbSVcOWiWpxMc1w4EZHAgVooFOG), [colab.research.google.com](https://colab.research.google.com/drive/1ZDTuPodj2NMB2RwLs89GW8pEkcMSgq6_#scrollTo=NGtAcQt3LGBC), [colab.research.google.com](https://colab.research.google.com/drive/1jP_wPi_zaijPvNQvZMq0Tt2YnHOtIF5-#scrollTo=xhLEmVoCUklo), [colab.research.google.com](https://colab.research.google.com/drive/1jP_wPi_zaijPvNQvZMq0Tt2YnHOtIF5-#scrollTo=NlRxeN36Ukll), [colab.research.google.com](https://colab.research.google.com/drive/1rM7zRySu8WulXbFiXzxBGVzILxvQ6K4A)
-
-## Backpropagation
-
-Так как градиент функции потерь зависит от всей модели. Его Аналитический подсчет для больших моделей затруднителен. Алгоритм обратного распространения позволяет сделать это для модели любой сложности используя правило вычисления производной сложной функции([chain rule](https://en.wikipedia.org/wiki/Chain_rule)).
 
 Модель представляется в виде графа, каждый узел кторого это простая функция от которой несложно посчитать производную. Автоматический рассчет градиентов при помощи этого метода используется во фреймворках [Pytorch](https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html) и [Tensorflow](https://www.tensorflow.org/guide/autodiff).
 
-[Презентация с описанием алгоритма обратного распространения](https://docs.google.com/presentation/d/1A2WY71ypO7QCRQVeK6x5IU5a69C4sFvHNQH-QtteQKw/edit#slide=id.gfa10e56b14_0_2)
 
+Материалы: [Backpropagation.ipynb](Backpropagation.ipynb), 
+[Презентация с описанием алгоритма обратного распространения](https://docs.google.com/presentation/d/1MCgXRalQYN4XMinNhaM49ZpEc39TnBxIwYJjiL2F5kU/edit?slide=id.gfa10e56b14_0_2#slide=id.gfa10e56b14_0_2)
+[Функции потель](loss_function.ipynb)
+
+Дополнительные материалы
 [Блокнот с примерами использования на Pytorch](https://drive.google.com/file/d/1FIzS0gSlKag4u-lhRTG9F1DXgg7H68nx/view?usp=sharing)
 
 [CS231 backprop explanation](https://cs231n.github.io/optimization-2/)
 
 [Лекция (Michigan Justin Johnson)](https://youtu.be/YnQJTfbwBM8?si=U-0Ou-a_2G6U9PuC)
 
-[Семинар backpropagation\[видео\]](https://youtu.be/HjhwvQ2t4xM)
+[Семинар backpropagation(видео)](https://youtu.be/HjhwvQ2t4xM)
 
-Материалы: [Backpropagation.ipynb](Backpropagation.ipynb), [optimization-2](https://cs231n.github.io/optimization-2/), [WZDlNAPIFrL-bQ](https://disk.yandex.ru/d/WZDlNAPIFrL-bQ), [presentation](https://docs.google.com/presentation/d/1MCgXRalQYN4XMinNhaM49ZpEc39TnBxIwYJjiL2F5kU/edit?slide=id.gfa10e56b14_0_2#slide=id.gfa10e56b14_0_2)
 
-## Оптимизаторы
+
+### Оптимизаторы
+Алгоритмы для обновления весов модели
 
 Backprop позволяет получить градиент лосс для произвольной модели. Обучение по прежнему происходит при помощи [градиентного спуска](https://ru.wikipedia.org/wiki/%D0%93%D1%80%D0%B0%D0%B4%D0%B8%D0%B5%D0%BD%D1%82%D0%BD%D1%8B%D0%B9_%D1%81%D0%BF%D1%83%D1%81%D0%BA).
 
@@ -81,6 +118,8 @@ Backprop позволяет получить градиент лосс для п
 w = w -lr*grad
 
 Шаг обучения задается вручную.
+
+![Optimization ](https://ml.gan4x4.ru/msu/dev-2.2/L07/out/stochastic_gradient_descent.gif)
 
 Придуман ряд алгоритмов позволяющих сделать процесс обновления весов более эффективным:
 
@@ -92,64 +131,119 @@ w = w -lr*grad
 
 Они называются оптимизаторами(Optimizers).
 
+![Optimizers](https://ml.gan4x4.ru/msu/dep-2.2/L07/methods_without_adaptive_learning_rate.gif)
+
+
 Существует множество оптимизаторов, которые можно применять для поиска минимума функционала ошибки ([неполный список](https://paperswithcode.com/methods/category/stochastic-optimization)). Эти алгоритмы реализованы в модуле [torch.optim](https://pytorch.org/docs/stable/optim.html)
 
-[Презентация "Оптимизаторы" (теория)](https://docs.google.com/presentation/d/1A2WY71ypO7QCRQVeK6x5IU5a69C4sFvHNQH-QtteQKw/edit#slide=id.g2860616d7ba_0_45)
 
-[Алгоритмы оптимизации использующие усреднение весов](https://docs.google.com/presentation/d/1Gta36FIzbtgKYDxd0d6bG4bwdhbz9G0dOtBK4vC3ijw/edit?usp=sharing)
-
-Материалы: [Optimizers.ipynb](Optimizers.ipynb), [presentation](https://docs.google.com/presentation/d/1MCgXRalQYN4XMinNhaM49ZpEc39TnBxIwYJjiL2F5kU/edit?slide=id.g2860616d7ba_0_45#slide=id.g2860616d7ba_0_45), [colab.research.google.com](https://colab.research.google.com/drive/1jP_wPi_zaijPvNQvZMq0Tt2YnHOtIF5-#scrollTo=07xMLT-NUkl5), [SaddlePoint](https://mathworld.wolfram.com/SaddlePoint.html), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=a49Fja0RSHUC), [optimization](https://www.deeplearningbook.org/contents/optimization.html), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=SSCrNkMGSHUD), [presentation](https://docs.google.com/presentation/d/1EYvgT3ZOUldAH1G4PBnPN0H5M9gaP9-8FyOLJs7Duhw/edit?slide=id.g39b5baca540_0_0#slide=id.g39b5baca540_0_0), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=f2QoyqmFSHUF), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=nOWaIkBaSHUF), [why-is-it-important-to-include-a-bias-correction-term-for-the-adam-optimizer-for](https://stats.stackexchange.com/questions/232741/why-is-it-important-to-include-a-bias-correction-term-for-the-adam-optimizer-for), [presentation](https://docs.google.com/presentation/d/1A2WY71ypO7QCRQVeK6x5IU5a69C4sFvHNQH-QtteQKw/edit?slide=id.g35da52bd86f_0_0#slide=id.g35da52bd86f_0_0), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=gLOXOyPbSHUG), [torch.optim.AdamW](https://docs.pytorch.org/docs/stable/generated/torch.optim.AdamW.html)
-
-## Schedulers и усреднение весов
-
-Например, для достаточно больших нейронных сетей практикуют следующую схему:
-
-Поставить изначальный learning rate значительно ниже того, с которого мы обычно начинаем обучение.
-
-За несколько эпох, например, 5, довести learning rate от этого значения до требуемого. Так мы не совершаем больших шагов, когда сеть еще ничего не знает о данных. За счет этого нейросеть лучше "адаптируется" к нашим данным.
-
-Также такой learning schedule позволяет адаптивным оптимизаторам лучше оценить значения learning rate для разных параметров:
+Материалы: [Optimizers.ipynb](Optimizers.ipynb), [Презентация "Оптимизаторы" (теория)](https://docs.google.com/presentation/d/1MCgXRalQYN4XMinNhaM49ZpEc39TnBxIwYJjiL2F5kU/edit?slide=id.g2860616d7ba_0_45#slide=id.g2860616d7ba_0_45),
 
 [Семинар\[видео\]](https://youtu.be/ErOVFZx5xX0)
 
-Материалы: [learning_techniques.ipynb](learning_techniques.ipynb), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=BuNe1R-_SHUI), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=wrtSg-w-SHUM), [paper](https://www.google.com/url?q=https%3A%2F%2Farxiv.org%2Fpdf%2F2203.05482.pdf)
+[Улучшение сходимости](learning_techniques.ipynb)
 
-## Dropout
+## Schedulers и усреднение весов
 
-Материалы: [Dropout.ipynb](Dropout.ipynb), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=m3_mNXVDSHT5)
+Адаптивные оптимизаторы такие как Adam хорошо рабатывают локально но не аптируются к глобальным стадиям обучения. Модель сначала должна попасть в облась глобального минимума лосс функции(exploration) а уже затем сойтись к одному из локальных(convergence).
 
-## Нормализация активаций
+![Exploration vs convergence](https://ml.gan4x4.ru/wb/crm/optimization/adam_weakness.png)
+
+Поэтому используются планировщики(schedulers) и методы усреднения весов.
+
+аптивные оптимизаторы такие как Adam хорошо рабатывают локально но не аптируются к глобальным стадиям обучения. Модель сначала должна попасть в облась глобального минимума лосс функции(exploration) а уже затем сойтись к одному из локальных(convergence).
+
+![adam\_weakness.png](https://ml.gan4x4.ru/wb/crm/optimization/adam_weakness.png)
+
+Поэтому используются планировщики(schedulers) и методы усреднения весов.
+
+![schedulers.png](https://ml.gan4x4.ru/wb/crm/optimization/schedulers.png)
+
+Проблемой планировщиков является необходимость подбора гиперпараметра - сколько шагов мы хотим сделать прежде чем изменить LR? Алгорити из статьи [Roadless scheduled](https://arxiv.org/abs/2405.15682) решает эту проблему за счет усреднения весов.
+
+
+Материалы: 
+
+
+[Алгоритмы оптимизации использующие усреднение весов](https://docs.google.com/presentation/d/1Gta36FIzbtgKYDxd0d6bG4bwdhbz9G0dOtBK4vC3ijw/edit?usp=sharing)
+
+[learning_techniques.ipynb](learning_techniques.ipynb), 
+
+## Регуляризация
+
+### Штраф на веса
+
+Регуляризация L1, L2
+
+Cложная модель вместо закономерностей которые содержуться в данных может запомнить сами данные.
+
+В результате модель будет отлично работеть на train выборке и очень плохо на val и test то есть переобучится.
+
+
+![Overfitting](https://ml.gan4x4.ru/msu/dev-2.0/L02/out/l2_regularization.png)
+
+
+Проше всего продемонстрировать переобучение на примере [полиномиальной модели](../Classic_ML/Polinomial_model.ipynb).
+
+Техники для борьбы с переобучением называются [регуляризацией](../Classic_ML/regularization.ipynb). Одна из них это штраф на веса. Во большинстве оптимизаторов есть параметр который позволяет задать этот штраф.
+
+### Dropout
+
+Dropout — это слой в нейронной сети, используемый для предотвращения переобучения. Слой отключает  определенный процент нейронов (зануляет активации) на каждой итерации обучения. 
+
+![Dropout](https://ml.gan4x4.ru/msu/dev-2.2/L07/out/dropout.png)
+
+Материалы: [Dropout.ipynb](Dropout.ipynb)
+
+
+## Нормализация
+
+### Нормализация входных данных
 
 Нормализация позволяет искать минимум целевой функции удобнее и быстрее:
 
-Материалы: [normalization.ipynb](normalization.ipynb), [Batchnorm.ipynb](Batchnorm.ipynb), [cs231n.github.io](https://cs231n.github.io/neural-networks-2/#batchnorm), [presentation](https://docs.google.com/presentation/d/1z9mFJ80hdQmRvhIZqQYKUKUt00bGKmrgocVNXe6C0tQ/edit?slide=id.ga128cc3c5d_0_114#slide=id.ga128cc3c5d_0_114), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=FumMqh2USHTq), [presentation](https://docs.google.com/presentation/d/1Gzjh0ywBrSGgBHF5D0VgYiI4RhuQCYUku4KmJR3oU9I/edit#slide=id.ga128cc3c5d_0_150), [colab.research.google.com](https://colab.research.google.com/drive/1wdPZuTSqfMjfkwAs7bnu2r4yIj0gU4ao), [colab.research.google.com](https://colab.research.google.com/drive/1otICabYgNg9FvUOXYAoOMr8vW9VX9vNC#scrollTo=EEGcisdRSHT2)
+Материалы: [normalization.ipynb](normalization.ipynb), [standartizaciya-dannyh](https://practicum.yandex.ru/blog/standartizaciya-dannyh/), [torch.nn.functional.normalize](https://docs.pytorch.org/docs/stable/generated/torch.nn.functional.normalize.html)
 
-## Lightning
+### Нормализация активаций
 
-Вот краткий список преимуществ, которые дает lightning:
 
-улучшение читаемости кода: универсальные названия функций (вы всегда знаете, куда смотреть, чтобы найти нужную часть кода);
+По [ряду причин](https://docs.google.com/presentation/d/1Gzjh0ywBrSGgBHF5D0VgYiI4RhuQCYUku4KmJR3oU9I/edit#slide=id.gcb79a262e3_0_36) (улучшение сходимости, стабильность и.т.д.) данные перед отправкой в модель нормализуют или [стандартизуют](https://wiki.loginom.ru/articles/data-standartization.html) (делают так что бы среднее было равно 0 а дисперсия 1).
 
-интеграция с TorchMetrics упрощает валидацию моделей: никаких вручную написанных расчетов accuracy и агрегации результатов — все происходит внутри готовых проверенных классов;
+Если модель состоит из нескольких линейных слоёв то нет гарантии что вход i-го слоя будет стандартизованным. Если сеть глубокая то к вышеописанным проблемам добавиться [затухание/взрыв градиента](https://docs.google.com/presentation/d/1Gzjh0ywBrSGgBHF5D0VgYiI4RhuQCYUku4KmJR3oU9I/edit#slide=id.g6afbbb2560_0_8)
 
-удобная система логирования: при выполнении вашей научной работы вы столкнетесь с необходимостью контроля воспроизводимости экспериментов, и Lightning предоставляет набор готовых решений для этого;
+![Vanishing gradient](https://ml.gan4x4.ru/wb/cv/images/grad_vanish.png)
 
-возможность восстановления: возможность легко продолжить обучение с сохраненной точки в случае отключения среды;
+Что бы не допустить затухание/взрыв градиента в сеть добавляют слои нормализации.
 
-простота управления ресурсами: распараллеливание вычислений на несколько устройств или выбор устройства, на котором происходят вычисления, осуществляется одной строкой;
+Так как на каждой итерации карты активации меняются, то слои нормализации выучивают параметры (среднее и стандартное отклонение) для нормализации активаций определенного слоя.
 
-обратная совместимость с PyTorch: при помощи Lightning мы обучаем уже известные нам PyTorch модели, и при желании всегда сможем продолжить с ними работу на "чистом" PyTorch.
 
-Материалы: [Lightning.ipynb](Lightning.ipynb), [github.com](https://github.com/Gan4x4/cv/blob/6bb67b5cede8ea9202bcdedbe6c7696366dfe8e2/Neural_network/Lightning.ipynb), [stable](https://lightning.ai/docs/pytorch/stable/)
+![Normalization types](https://ml.gan4x4.ru/wb/cv/images/normalization_types.png)
 
-## Tensorboard
+Они отличаются тем по какой части данных считаются статистики(mean, std).
 
-Для визуализации данных в коде можно использовать библиотеку matplotlib. Однако, если вы проводите реальные эксперименты, вам может понадобиться инструмент для сохранения и сравнения результатов без повторного обучения моделей. Один из способов — логирование результатов экспериментов. Для удобного отображения таких логов есть более мощные инструменты. В этом блоке вы узнаете об одном из них — TensorBoard.
+Нормализация позволяет искать минимум целевой функции удобнее и быстрее:
 
-Материалы: [tensorboard.ipynb](tensorboard.ipynb), [github.com](https://github.com/Gan4x4/cv/blob/6bb67b5cede8ea9202bcdedbe6c7696366dfe8e2/Neural_network/tensorboard.ipynb), [tensorboard](https://www.tensorflow.org/tensorboard?hl=ru), [site](https://wandb.ai/site/)
+Материалы: [normalization.ipynb](normalization.ipynb)
 
-## Batch Normalization
+ [presentation](https://docs.google.com/presentation/d/1z9mFJ80hdQmRvhIZqQYKUKUt00bGKmrgocVNXe6C0tQ/edit?slide=id.ga128cc3c5d_0_114#slide=id.ga128cc3c5d_0_114)
+
+#### Batch Normalization
+
+В сверточных сетях наиболее эффективным показал себя слой BatchNorm:
+
+Материалы: [Batchnorm.ipynb](Batchnorm.ipynb)
 
 [Семинар(видео)](https://www.youtube.com/watch?v=FmQlk4NWSiY&t=1496s)
 
-Материалы: [Batchnorm.ipynb](Batchnorm.ipynb)
+
+## Введение в PyTorch.
+
+Набор инструментов для обработки и загрузки данных в модель с помощью фреймворка Pytorch.
+
+![Torch training pipeline](https://ml.gan4x4.ru/msu/dev-2.2/L05/out/dataset_dataloader.png)
+
+
+Материалы: [pytorch_example.ipynb](pytorch_example.ipynb), [data_tutorial](https://docs.pytorch.org/tutorials/beginner/basics/data_tutorial.html)
+
+
