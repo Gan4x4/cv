@@ -166,3 +166,5 @@ cython_debug/
 .pt
 .codex
 scraped
+.pw-wb-profile
+wb_materials_md
