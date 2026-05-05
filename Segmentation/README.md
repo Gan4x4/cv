@@ -89,8 +89,7 @@ Panoptic segmentation бъединяет задачи Instance segmentation и S
 
 
 Метрика: Panoptic Quality
-[Блог 1](https://iq.opengenus.org/pq-sq-rq/)
-
+[Блог 1](https://iq.opengenus.org/pq-sq-rq/), 
 [Блог 2](https://segments.ai/blog/panoptic-segmentation-datasets/)
 
 

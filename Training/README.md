@@ -3,12 +3,18 @@
 
 ## Темы
 
+- [EDA(Exploratory_Data_Analysis).ipynb](Exploratory_Data_Analysis_image_dataset.ipynb)
 - [Борьба с дисбаллансом ](WeightedRandomSampler.ipynb)
-
-- [Multilabel классификация](extra/BCEWithLogitsLoss_invalid_targets.ipynb)
+- [Оценка консистентности разметки (IAA_and_Intra_annotator_consistency](Inter_annotator_agreement_(IAA)_and_Intra_annotator_consistency.ipynb)
 - [Schedulers и усреднение весов](Cyclic_learning_rate_schedulers.ipynb)
 - [Lightning.ipynb](Lightning.ipynb)
 - [tensorboard.ipynb](tensorboard.ipynb)
+- [ClearML_experiment_tracking.ipynb](ClearML_experiment_tracking.ipynb)
+- [Hydra_final.ipynb](Hydra_final.ipynb)
+
+Extra:
+- [Multilabel классификация](extra/BCEWithLogitsLoss_invalid_targets.ipynb)
+- [Training/extra/Binarize_targets_in_regression_task.ipynb](Training/extra/Binarize_targets_in_regression_task.ipynb)
 
 
 ## Анализ данных
@@ -65,8 +71,6 @@
 [Семинар(видео)](https://youtu.be/ErOVFZx5xX0)
 
 Материалы: [Cyclic_learning_rate_schedulers.ipynb](Cyclic_learning_rate_schedulers.ipynb), [paper](https://www.google.com/url?q=https%3A%2F%2Farxiv.org%2Fpdf%2F2203.05482.pdf)
-
-
 
 
 ## Инструменты
