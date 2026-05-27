@@ -2,12 +2,13 @@
 
 ## Темы
 
-- [Современные модели для сегментации](SAM.ipynb)
+- [Постановка задачи детектирования](Detection_task.ipynb)
 - [История детекторов](RCNN.ipynb)
 - [Loss для детектора](RetinaNet.ipynb)
 - [mAP - метрика для оценки детекторов](mAP.ipynb)
 - [YOLO](YOLO.ipynb)
 - [Open-World Localization](OWL_ViT.ipynb)
+- [SAM](SAM.ipynb)
 - [DINO + SAM](DINO_SAM.ipynb)
 
 
@@ -39,6 +40,9 @@ Loss = L_class + aL_reg
 
     Предсказывается заведомо больше bounding boxes, чем может быть объектов на изображении.
 
+
+
+Материалы: [Постановка задачи детектирования](Detection_task.ipynb)
 
 ## История детекторов
 
