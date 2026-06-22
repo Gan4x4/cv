@@ -4,10 +4,20 @@
 The script preserves markdown cells, code cells, and image outputs. It ignores
 notebook metadata, execution counts, and cell tags.
 
+
+
 Usage:
     python scripts/convert2md.py
     python scripts/convert2md.py --root path/to/repository --output-dir path/to/md
+
+
+Image path replacement: after generation, output data are uploaded to the server;
+use SERVER_URL for image URLs instead of local paths.
+
 """
+
+
+
 
 from __future__ import annotations
 
@@ -18,6 +28,8 @@ import re
 import sys
 from pathlib import Path
 from typing import Any
+
+SERVER_URL = "https://ml.gan4x4.ru/wb/cv/md/"
 
 
 def read_notebook(path: Path) -> dict[str, Any]:
@@ -36,11 +48,9 @@ HTML_IMAGE_TAG_RE = re.compile(
     re.IGNORECASE,
 )
 
-COLAB_BADGE_RE = re.compile(
-    r"""^\s*(?:<a\b[^>]*>\s*)?(?:
-        <img\b[^>]*(?:colab-badge\.svg|alt\s*=\s*["']?Open\s+In\s+Colab)[^>]*>
-        |\[!\[\s*Open\s+In\s+Colab\s*\]\([^)]*colab-badge\.svg[^)]*\)\]\([^)]*\)
-    )(?:\s*</a>)?\s*""",
+COLAB_BADGE_HTML_RE = re.compile(
+    r"""^\s*<a\b[^>]*\bhref\s*=\s*["']([^"']+)["'][^>]*>\s*
+        <img\b[^>]*\bsrc\s*=\s*["']([^"']*colab-badge\.svg[^"']*)["'][^>]*>\s*</a>""",
     re.IGNORECASE | re.VERBOSE,
 )
 SCRIPT_TAG_RE = re.compile(r"<script\b[^>]*>.*?</script\s*>", re.IGNORECASE | re.DOTALL)
@@ -62,9 +72,13 @@ def convert_html_images_to_markdown(text: str) -> str:
     return HTML_IMAGE_TAG_RE.sub(replace, text)
 
 
-def remove_leading_colab_badge(text: str) -> str:
-    """Remove the optional Colab launch badge from a notebook's first cell."""
-    return COLAB_BADGE_RE.sub("", text, count=1)
+def convert_leading_colab_badge(text: str) -> str:
+    """Convert an optional HTML Colab launch badge in the first cell to a text link."""
+    return COLAB_BADGE_HTML_RE.sub(
+        lambda match: f"[Open In Colab]({match.group(1)})",
+        text,
+        count=1,
+    )
 
 
 def remove_unsupported_html(text: str) -> str:
@@ -85,6 +99,7 @@ def save_image(
     notebook_name: str,
     cell_index: int,
     output_index: int,
+    output_root: Path | None = None,
 ) -> str:
     ext = output_key.split("/")[-1]
     if ext == "svg+xml":
@@ -92,14 +107,16 @@ def save_image(
     elif ext == "jpeg":
         ext = "jpg"
 
-    image_dir = output_dir / "images"
+    image_dir = output_dir / "outputs"
     image_dir.mkdir(parents=True, exist_ok=True)
 
     image_name = f"{notebook_name}_cell_{cell_index + 1}_output_{output_index + 1}.{ext}"
     image_path = image_dir / image_name
     image_path.write_bytes(data)
 
-    return f"images/{image_name}"
+    relative_dir = output_dir.relative_to(output_root) if output_root else Path()
+    url_dir = "" if relative_dir == Path() else f"{relative_dir.as_posix()}/"
+    return f"{SERVER_URL}{url_dir}outputs/{image_name}"
 
 
 def render_output_data(
@@ -108,6 +125,7 @@ def render_output_data(
     notebook_name: str,
     cell_index: int,
     output_index: int,
+    output_root: Path | None = None,
 ) -> list[str]:
     parts: list[str] = []
 
@@ -134,7 +152,13 @@ def render_output_data(
             except (ValueError, TypeError):
                 continue
             relative_path = save_image(
-                mime_type, image_bytes, output_dir, notebook_name, cell_index, output_index
+                mime_type,
+                image_bytes,
+                output_dir,
+                notebook_name,
+                cell_index,
+                output_index,
+                output_root,
             )
             parts.append(f"![image]({relative_path})")
 
@@ -147,6 +171,7 @@ def render_output(
     notebook_name: str,
     cell_index: int,
     output_index: int,
+    output_root: Path | None = None,
 ) -> list[str]:
     output_type = output.get("output_type")
 
@@ -159,7 +184,12 @@ def render_output(
 
     if output_type in {"execute_result", "display_data"}:
         return render_output_data(
-            output.get("data", {}), output_dir, notebook_name, cell_index, output_index
+            output.get("data", {}),
+            output_dir,
+            notebook_name,
+            cell_index,
+            output_index,
+            output_root,
         )
 
     if output_type == "error":
@@ -170,7 +200,9 @@ def render_output(
     return []
 
 
-def convert_notebook_to_markdown(notebook_path: Path, output_path: Path | None = None) -> Path:
+def convert_notebook_to_markdown(
+    notebook_path: Path, output_path: Path | None = None, output_root: Path | None = None
+) -> Path:
     notebook = read_notebook(notebook_path)
     notebook_name = notebook_path.stem
 
@@ -188,7 +220,7 @@ def convert_notebook_to_markdown(notebook_path: Path, output_path: Path | None =
 
         if cell_type == "markdown":
             if cell_index == 0:
-                source = remove_leading_colab_badge(source)
+                source = convert_leading_colab_badge(source)
             if source.strip():
                 markdown_lines.append(
                     convert_html_images_to_markdown(remove_unsupported_html(source.rstrip()))
@@ -205,7 +237,7 @@ def convert_notebook_to_markdown(notebook_path: Path, output_path: Path | None =
             outputs = cell.get("outputs", [])
             for output_index, output in enumerate(outputs):
                 rendered = render_output(
-                    output, output_dir, notebook_name, cell_index, output_index
+                    output, output_dir, notebook_name, cell_index, output_index, output_root
                 )
                 for block in rendered:
                     markdown_lines.append(block)
@@ -249,7 +281,7 @@ def main(argv: list[str] | None = None) -> int:
 
     for notebook_path in notebooks:
         output_path = output_dir / notebook_path.relative_to(root).with_suffix(".md")
-        convert_notebook_to_markdown(notebook_path, output_path)
+        convert_notebook_to_markdown(notebook_path, output_path, output_dir)
         print(f"Converted {notebook_path.relative_to(root)} -> {output_path.relative_to(root)}")
     return 0
 

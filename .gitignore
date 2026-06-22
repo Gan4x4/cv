@@ -168,3 +168,5 @@ cython_debug/
 scraped
 .pw-wb-profile
 wb_materials_md
+md/
+AGENTS.md
