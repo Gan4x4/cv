@@ -1,9 +1,12 @@
 #!/usr/bin/env python3
-"""Check URLs embedded in Jupyter notebooks.
+"""Find broken URLs embedded in Jupyter notebooks.
 
 The script scans every `.ipynb` file under the repository root, extracts URL
-strings, and probes each URL with a lightweight request. It prints URLs whose
-final server response is HTTP 200.
+strings from markdown cells, and probes each URL with a lightweight request. It
+prints URLs whose final server response is not HTTP 200.
+
+Usage:
+    python scripts/check_notebook_links.py [--root PATH] [--url-filter TEXT]
 """
 
 from __future__ import annotations
