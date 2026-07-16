@@ -170,5 +170,3 @@ scraped
 wb_materials_md
 md/
 AGENTS.md
-/txt/*
-!/txt/CNN
