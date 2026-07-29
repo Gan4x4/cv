@@ -56,6 +56,12 @@ COLAB_BADGE_HTML_RE = re.compile(
 SCRIPT_TAG_RE = re.compile(r"<script\b[^>]*>.*?</script\s*>", re.IGNORECASE | re.DOTALL)
 CENTER_TAG_RE = re.compile(r"</?center\b[^>]*>", re.IGNORECASE)
 COLAB_DATAFRAME_RE = re.compile(r"<div\b[^>]*\bcolab-df-container\b", re.IGNORECASE)
+MATPLOTLIB_FIGURE_RE = re.compile(
+    r"^<Figure size \S+ with \d+ Axes>$",
+)
+LIST_ITEM_RE = re.compile(r"^\s*(?:[-+*]|\d+[.)])\s+")
+INDENTED_CONTENT_RE = re.compile(r"^(?: {4}|\t)\S")
+FENCE_RE = re.compile(r"^\s*(`{3,}|~{3,})")
 
 
 def convert_html_images_to_markdown(text: str) -> str:
@@ -84,6 +90,63 @@ def convert_leading_colab_badge(text: str) -> str:
 def remove_unsupported_html(text: str) -> str:
     """Drop JavaScript and alignment wrappers that Markdown renderers do not support."""
     return CENTER_TAG_RE.sub("", SCRIPT_TAG_RE.sub("", text))
+
+
+def find_risky_list_continuations(text: str) -> list[int]:
+    """Return one-based line numbers for potentially incompatible list continuations."""
+    lines = text.splitlines()
+    risky_lines: list[int] = []
+    fence_character: str | None = None
+    fence_length = 0
+
+    for line_index, line in enumerate(lines):
+        fence_match = FENCE_RE.match(line)
+        if fence_match:
+            marker = fence_match.group(1)
+            if fence_character is None:
+                fence_character = marker[0]
+                fence_length = len(marker)
+            elif marker[0] == fence_character and len(marker) >= fence_length:
+                fence_character = None
+                fence_length = 0
+            continue
+
+        if fence_character is not None or not LIST_ITEM_RE.match(line):
+            continue
+
+        continuation_index = line_index + 1
+        if continuation_index >= len(lines) or lines[continuation_index].strip():
+            continue
+
+        while continuation_index < len(lines) and not lines[continuation_index].strip():
+            continuation_index += 1
+
+        if continuation_index >= len(lines):
+            continue
+
+        continuation = lines[continuation_index]
+        if (
+            INDENTED_CONTENT_RE.match(continuation)
+            and not LIST_ITEM_RE.match(continuation)
+            and not FENCE_RE.match(continuation)
+        ):
+            risky_lines.append(line_index + 1)
+
+    return risky_lines
+
+
+def warn_about_risky_list_continuations(
+    text: str, notebook_path: Path, cell_number: int
+) -> None:
+    lines = text.splitlines()
+    for line_number in find_risky_list_continuations(text):
+        list_text = LIST_ITEM_RE.sub("", lines[line_number - 1], count=1).rstrip()
+        context = list_text[-20:]
+        print(
+            f"Warning: {notebook_path}: cell {cell_number}, line {line_number}: "
+            f'near "{context}": risky list break',
+            file=sys.stderr,
+        )
 
 
 def render_text_output(text: Any) -> str:
@@ -132,7 +195,7 @@ def render_output_data(
     for mime_type, value in output_data.items():
         if mime_type == "text/plain":
             text = render_text_output(value)
-            if text.strip():
+            if text.strip() and not MATPLOTLIB_FIGURE_RE.fullmatch(text.strip()):
                 parts.append(f"```text\n{text.rstrip()}\n```")
         elif mime_type == "text/html":
             if COLAB_DATAFRAME_RE.search(render_text_output(value)):
@@ -219,6 +282,7 @@ def convert_notebook_to_markdown(
         source = normalize_source(cell.get("source", ""))
 
         if cell_type == "markdown":
+            warn_about_risky_list_continuations(source, notebook_path, cell_index + 1)
             if cell_index == 0:
                 source = convert_leading_colab_badge(source)
             if source.strip():
@@ -276,13 +340,14 @@ def main(argv: list[str] | None = None) -> int:
         path for path in root.rglob("*.ipynb") if output_dir not in path.parents
     )
     if not notebooks:
-        print(f"No notebooks found in {root}")
+        print("Converted 0 files.")
         return 0
 
     for notebook_path in notebooks:
         output_path = output_dir / notebook_path.relative_to(root).with_suffix(".md")
         convert_notebook_to_markdown(notebook_path, output_path, output_dir)
-        print(f"Converted {notebook_path.relative_to(root)} -> {output_path.relative_to(root)}")
+    file_label = "file" if len(notebooks) == 1 else "files"
+    print(f"Converted {len(notebooks)} {file_label}.")
     return 0
 
 
