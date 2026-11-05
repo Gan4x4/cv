@@ -5,6 +5,7 @@
 - [Visual Transformers (ViT)](ViT.ipynb)
 - [DEIT.ipynb](DEIT.ipynb)
 - [Efficient_Attention.ipynb](Efficient_Attention.ipynb)
+- [LoRA: теория и классификация CIFAR-10 с RoPE-ViT](LoRA_lecture.ipynb)
 
 ## Visual Transformers (ViT)
 
