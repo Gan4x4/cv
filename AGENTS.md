@@ -28,15 +28,48 @@ Not lazy about: input validation at trust boundaries, error handling that preven
 
 # Teaching notebooks:
 
-- Teach one concept per short cell; import near use and explain immediately before code.
-- Explain where every new parameter comes from and decisions students must make.
-- Explain parameter choices without repeating values already visible in code; keep one source of truth.
-- Use standard library/dependency functions where it possible.
-- Remove redundant performance options that distract from the lesson.
-- Keep checks actionable: explain failures and what students should do next.
-- Keep implementation investigations and development notes outside the lesson.
-- Comments in code cell in English
-- Give students clear instruction what they must do in particular cell
+- Teach one concept per short cell; import near use and explain immediately before code. Split setup, data inspection, processing, and inference when they introduce different ideas; let the learning steps determine cell boundaries unless the task specifies a limit.
+- Show the input before transforming it, and place intermediate outputs beside the step they explain. Students should be able to follow how the data changes.
+- Write explanations in Russian, using short paragraphs and a direct, collaborative voice: what we will do, why it is needed, then the code. Make the action students should take in each cell clear.
+- Introduce unfamiliar APIs through a familiar operation from the lesson. Explain what the API takes, what it handles automatically, and what it returns; name the relevant object or field so students can connect the explanation to the code.
+- Explain where new parameters come from and which choices students must make. Keep shared configuration consistent and avoid restating code values in prose.
+- Explain cause and effect explicitly: what the previous step produced and why the next operation is needed. Put brief limitations beside the result they help interpret.
+- Prefer readable, explicit steps and named intermediate values when they expose a concept. Minimizing line count is secondary to making shapes, indexing, and type conversions easy to follow; avoid helper abstractions that hide these steps.
+- Use standard library or dependency functions for routine work. In notebook setup, use familiar platform commands when they express a simple operation directly; avoid extra Python plumbing solely for setup.
+- Keep code comments short and in English. Use them to clarify non-obvious shapes, axes, or accepted types; keep the lesson narrative in Markdown.
+- Select diagnostics that support the current concept, using actual tensors and model metadata. Avoid exhaustive configuration dumps, redundant calculations, and performance options unrelated to the lesson.
+- Leave one small, meaningful runnable check for non-trivial logic; keep failures actionable by explaining what students should check or change.
+- Make plots and diagrams match the arrangement or transformation described in the text. Remove tangents and repeated explanations that interrupt the current learning step.
+- Keep implementation investigations, editing history, and development notes outside the lesson.
+
+Examples from `Transformers/ViT.ipynb` (`-` removed, `+` replacement):
+
+Import each API in the cell that introduces it:
+
+```diff
+-from transformers import AutoImageProcessor, AutoModelForImageClassification
++from transformers import AutoModelForImageClassification
++# In the later preprocessing cell:
++from transformers import AutoImageProcessor
+```
+
+Use a familiar notebook command for a simple download:
+
+```diff
+-from urllib.request import urlretrieve
+-urlretrieve("https://ml.gan4x4.ru/msu/dep-2.0/L08/capybara.jpg", "capybara.jpg")
++!wget -q https://ml.gan4x4.ru/msu/dep-2.0/L08/capybara.jpg -O capybara.jpg
+```
+
+Expose indexing and scalar conversion when students need to follow them:
+
+```diff
+-for class_id, probability in zip(top_indices.tolist(), top_probabilities.tolist()):
+-    print(f"{model.config.id2label[class_id]}: {probability:.2%}")
++for i, class_id in enumerate(top_indices):
++    probability = top_probabilities[i].item()
++    print(f"{model.config.id2label[class_id.item()]}: {probability:.2%}")
+```
 
 
 # Git Workflow
